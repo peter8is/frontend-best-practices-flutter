@@ -1,0 +1,57 @@
+## General Front-End Best Practices
+
+### 1. Clean Code Architecture
+- **Layered Structure**: Organize into layers: Presentation (UI), Domain (business logic, models), Data (API, local storage).
+  - Example: `lib/presentation/screens`, `lib/domain/models`, `lib/data/repositories`.
+- **File Naming**: Use descriptive, lowercase names with underscores (e.g., `machine_screen.dart`, `job_repository.dart`).
+- **Single Responsibility**: Each widget, cubit, or repository should have one purpose.
+
+### 2. Cross-Platform Support
+- **Platform Detection**: Use `Platform` or `kIsWeb` to handle platform-specific logic.
+  - Example: `if (kIsWeb) { /* Web logic */ } else { /* Native logic */ }`.
+- **Responsive Design**: Use `MediaQuery`, `LayoutBuilder`, or `flutter_screenutil` for responsive layouts.
+
+### 3. Performance Optimization
+- **Minimize Rebuilds**: Use const constructors for stateless widgets.
+- **Lazy Loading**: Load data on-demand (e.g., paginate machine lists).
+- **Asset Management**: Optimize images.
+
+## Cubit for State Management
+- **Best Practices**: Single source of truth, event-driven architecture.
+- **Performance Tips**: Immutable state, selective listening.
+- **Security Measures**: State sanitization, error handling.
+
+## Dio for Networking
+- **Best Practices**: Set up base URL, interceptors, and response parsing.
+- **Performance Tips**: Connection pooling, timeouts, caching.
+- **Security Measures**: Use HTTPS, token management, and error handling.
+
+## GetIt for Dependency Injection
+- **Best Practices**: Modular setup, singleton registration.
+- **Performance Tips**: Lazy loading.
+- **Security Measures**: Secure storage and scope isolation.
+
+## GoRouter for Navigation and Routing
+- **Best Practices**: Route definition, deep linking, guards.
+- **Performance Tips**: Route preloading, minimizing transitions.
+- **Security Measures**: Auth checks and parameter validation.
+
+## Firebase for Notifications and Analytics
+- **Best Practices**: Push notifications, event logging.
+- **Performance Tips**: Batching analytics events, minimal payloads.
+- **Security Measures**: Token security, opt-in for notifications.
+
+## Responsive UI
+- **Best Practices**: Layout widgets, breakpoints, text scaling.
+- **Performance Tips**: Avoid overbuilding, image optimization.
+- **Accessibility**: Semantics and contrast for screen readers.
+
+## Cross-Platform Considerations
+- **Android/iOS**: Permissions, native integration.
+- **Web**: Rendering optimizations, CORS.
+- **Desktop**: Window management, file handling.
+
+## Enforcement
+- Code Reviews
+- Linting
+- Testing
